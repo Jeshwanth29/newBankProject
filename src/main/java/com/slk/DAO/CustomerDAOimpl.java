@@ -1,6 +1,9 @@
 package com.slk.DAO;
 
 import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +11,7 @@ import java.util.ArrayList;
 
 import com.slk.model.Customer;
 import com.slk.util.*;
-
+@RestController
 public class CustomerDAOimpl implements CustomerDAO {
 
 	Connection connection = null;
@@ -24,8 +27,8 @@ public class CustomerDAOimpl implements CustomerDAO {
 		List<Customer> cst = new ArrayList<Customer>();
 
 		try {
-			String statement = "select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;";
-			PreparedStatement stmt = connection.prepareStatement("statement");
+			//String statement = "select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;";
+			PreparedStatement stmt = connection.prepareStatement("select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 

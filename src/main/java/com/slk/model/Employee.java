@@ -1,5 +1,8 @@
 package com.slk.model;
 
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class Employee {
 	public String employee_id;
 	public String employee_name;
