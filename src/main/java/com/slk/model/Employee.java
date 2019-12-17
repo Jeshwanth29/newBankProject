@@ -12,6 +12,7 @@ public class Employee {
 	public String username;
 	public String password;
 	public String employee_role;
+	public String branch_id;
 
 	public String getEmployee_id() {
 		return employee_id;
@@ -76,5 +77,14 @@ public class Employee {
 	public void setEmployee_role(String employee_role) {
 		this.employee_role = employee_role;
 	}
+
+	public String getBranch_id() {
+		return branch_id;
+	}
+
+	public void setBranch_id(String branch_id) {
+		this.branch_id = branch_id;
+	}
+	
 
 }

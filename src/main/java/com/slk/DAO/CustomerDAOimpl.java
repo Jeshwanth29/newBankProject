@@ -33,7 +33,7 @@ public class CustomerDAOimpl implements CustomerDAO {
 			while (rs.next()) {
 
 				Customer cst1 = new Customer();
-				cst1.setCust_id(rs.getString(1));
+				cst1.setCust_id(rs.getLong(1));
 				cst1.setName(rs.getString(2));
 				cst1.setDob(rs.getString(3));
 				cst1.setContact(rs.getLong(4));

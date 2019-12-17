@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Customer {
-	public String cust_id;
+	public Long cust_id;
 	public String name;
 	public String dob;
 	public Long contact;
@@ -19,11 +19,11 @@ public class Customer {
 	public float balance;
 	public String account_id;
 
-	public String getCust_id() {
+	public Long getCust_id() {
 		return cust_id;
 	}
 
-	public void setCust_id(String cust_id) {
+	public void setCust_id(Long cust_id) {
 		this.cust_id = cust_id;
 	}
 
