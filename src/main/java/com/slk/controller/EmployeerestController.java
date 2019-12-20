@@ -21,7 +21,7 @@ import com.slk.model.*;
 import com.slk.util.*;
 
 import ch.qos.logback.core.joran.action.NewRuleAction;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class EmployeerestController {
 	@Autowired
@@ -31,6 +31,14 @@ public class EmployeerestController {
 	public List getallManagers() throws Exception {
 		System.out.println("the functiuon inside controller");
 		return employeeDAO.getallManagers();
+	}
+	
+	@GetMapping("/B_MD/{username}/{password}")
+	public ResponseEntity getAgentById(@PathVariable("username") String username ,@PathVariable("password") String password) throws Exception {
+		boolean ad = employeeDAO.login(username,password);
+		System.out.println(username+" "+password);
+		return new ResponseEntity(ad, HttpStatus.OK);
+
 	}
 
 	@PostMapping("/post/B_Employee")

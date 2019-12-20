@@ -12,5 +12,5 @@ public interface EmployeeDAO {
 	public String deleteManager(String employee_id);
 	public Employee getMDbyid(String employee_id );
 	public Employee updateMD(String employee_id, Employee emp);
-
+	public boolean login(String username, String password) throws Exception ;
 }

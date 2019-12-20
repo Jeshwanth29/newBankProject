@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.slk.DAO.*;
 import com.slk.model.*;
 import com.slk.util.*;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CustomerrestController {
 	@Autowired

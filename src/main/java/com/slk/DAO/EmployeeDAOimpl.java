@@ -128,7 +128,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		Employee emp = null;
 		try {
 
-			String query = "select * from employee where employee_id=?";
+			String query = "select * from employee  where employee_role='managing director' && employee_id=?;";
 			PreparedStatement stmt = connection.prepareStatement(query);
 			stmt.setString(1, employee_id);
 			ResultSet rs = stmt.executeQuery();
@@ -156,7 +156,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		System.out.println(employee_id);
 		try {
 			// emp=new Employee();
-			String query = "update employee set employee_name=?,dob=?,contact=?,mail=?,username=?,password=?,employee_role=? where employee_id=?";
+			String query = "update employee set employee_name=?,dob=?,contact=?,mail=?,username=?,password=?,employee_role=? where employee_id=? && employee_role='managing director';";
 			PreparedStatement stmt = connection.prepareStatement(query);
 			stmt.setString(1, emp.getEmployee_name());
 			stmt.setString(2, emp.getDob());
@@ -175,4 +175,22 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		}
 		return emp;
 	}
+	
+	public boolean login(String username, String password) throws Exception {
+	
+	Employee emp = new Employee();
+	boolean flag = false;
+	PreparedStatement stmt = connection.prepareStatement("select username,password from employee where username=?  and password=? ");
+	stmt.setString(1, username);
+	stmt.setString(2, password);
+	ResultSet rs = stmt.executeQuery();
+	while (rs.next()) {
+		emp.setUsername(rs.getString(1));
+		emp.setPassword(rs.getString(2));
+		flag = true;
+	}
+	return flag;
+}
+
+	
 }
